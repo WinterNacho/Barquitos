@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://jy1115ay0hng"]
+
+[ext_resource type="Script" path="res://scenes/map/map.gd" id="1_d5nro"]
+[ext_resource type="PackedScene" uid="uid://crnktpop0xckn" path="res://scenes/map/ocean.tscn" id="2_6m7ap"]
+[ext_resource type="PackedScene" uid="uid://dnxgp08gjq5bi" path="res://scenes/map/wall.tscn" id="2_fjacu"]
+
+[node name="Map" type="Node3D"]
+script = ExtResource("1_d5nro")
+
+[node name="Ocean" parent="." instance=ExtResource("2_6m7ap")]
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+
+[node name="sp1" type="Marker3D" parent="SpawnPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -0.2, 100)
+
+[node name="sp2" type="Marker3D" parent="SpawnPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, -0.2, -100)
+
+[node name="sp3" type="Marker3D" parent="SpawnPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, -0.2, 100)
+
+[node name="sp4" type="Marker3D" parent="SpawnPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -0.2, -100)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.426837, 0.904329, 0, -0.904329, 0.426837, 24.3608, 135.234, 37.4995)
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_fjacu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 125)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("2_fjacu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 125, 0, 0)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_fjacu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -125, 0, 0)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("2_fjacu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -125)

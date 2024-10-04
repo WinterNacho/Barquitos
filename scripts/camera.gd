@@ -1,7 +1,7 @@
 extends Node3D
 @export var cameratarget: Node3D
-@export var pitch_max = 50
-@export var pitch_min =-50
+@export var pitch_max = -10
+@export var pitch_min =-90
 
 var yaw = float()
 var pitch = float()
@@ -14,8 +14,8 @@ func _ready() -> void:
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() != 0:
-		yaw += -event.relative.x * yaw_sensitivity
-		pitch += event.relative.y * pitch_sensitivity
+		yaw -= event.relative.x * yaw_sensitivity
+		pitch -= event.relative.y * pitch_sensitivity
 
 
 func _physics_process(delta: float) -> void:
