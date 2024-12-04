@@ -14,7 +14,7 @@ shader_parameter/wave_speed = 1.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_uchhv"]
 material = SubResource("ShaderMaterial_utxah")
-size = Vector2(250, 250)
+size = Vector2(300, 300)
 
 [node name="Ocean" type="Node3D"]
 

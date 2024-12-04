@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://3v6q7v5ihpij"]
+[gd_scene load_steps=34 format=4 uid="uid://3v6q7v5ihpij"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_785fi"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_c1pj5"]
@@ -399,6 +399,9 @@ shadow_mesh = SubResource("ArrayMesh_osh4e")
 
 [sub_resource type="QuadMesh" id="QuadMesh_fi3vu"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pifhv"]
+albedo_color = Color(0.298039, 0.254902, 0.219608, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2b8a8"]
 resource_name = "iron"
 albedo_color = Color(0.647221, 0.647221, 0.647221, 1)
@@ -560,6 +563,7 @@ subpixel_positioning = 0
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6lmdb"]
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 script = ExtResource("1_785fi")
 
 [node name="ship" type="MeshInstance3D" parent="."]
@@ -590,6 +594,7 @@ skeleton = NodePath("")
 [node name="plank" type="MeshInstance3D" parent="ship"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.28453, 0)
 mesh = SubResource("QuadMesh_fi3vu")
+surface_material_override/0 = SubResource("StandardMaterial3D_pifhv")
 
 [node name="cannon" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999128, 0.0417536, 0, -0.0417536, 0.999128, 6, 0, 0)
@@ -630,8 +635,15 @@ transform = Transform3D(-1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, -1, 0.2172
 mesh = SubResource("ArrayMesh_4jjmw")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00041759, 2.14769e-14, 0.0144567)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00041759, 0, 0.0144567)
+shape = SubResource("ConvexPolygonShape3D_yhukr")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00041759, 0, 0.0144567)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.01727, 0, 0, 0, 1.01727, 0, 0, 0, 1.01727, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_yhukr")
 
 [node name="Camera" type="Node3D" parent="." node_paths=PackedStringArray("cameratarget")]
@@ -645,7 +657,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.07144)
 spring_length = 20.0
 
 [node name="Camera3D" type="Camera3D" parent="Camera/CameraTarget/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00110817, 0.0231636, 30.0002)
 
 [node name="CannonCamera" type="Camera3D" parent="."]
 transform = Transform3D(-4.31536e-08, -0.159244, -0.987239, -6.96076e-09, 0.987239, -0.159244, 1, 0, -4.37114e-08, 0.442645, 1.96913, -1.70431)
@@ -672,3 +684,9 @@ doppler_tracking = 2
 [node name="DamageSFX" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_qc3c3")
 max_distance = 437.74
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
