@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="1_d5nro"]
 [ext_resource type="PackedScene" uid="uid://crnktpop0xckn" path="res://scenes/map/ocean.tscn" id="2_6m7ap"]
 [ext_resource type="PackedScene" uid="uid://dnxgp08gjq5bi" path="res://scenes/map/wall.tscn" id="2_fjacu"]
-[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="4_ykcci"]
+[ext_resource type="PackedScene" uid="uid://crg0y7atvdbww" path="res://scenes/HUD.tscn" id="4_ykcci"]
 [ext_resource type="AudioStream" uid="uid://c4b8rkufb7mfb" path="res://resources/audio/sea_sfx.wav" id="5_ebcx1"]
 [ext_resource type="AudioStream" uid="uid://mme0bc7sibqn" path="res://resources/audio/creakSFX.wav" id="6_5hc80"]
 [ext_resource type="Material" uid="uid://bkj57pl73ypm2" path="res://scenes/map/sky.tres" id="7_vc8bp"]

@@ -12,8 +12,10 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):  # Asegúrate de que el jugador esté en el grupo "Player"
-		var player = body
-		queue_free()
-		
-		player.take_damage(0)
-		print("CHOQUE") # Aquí llamas a una función del jugador para restarle una vida
+		print("CHOQUE")
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):  # Asegúrate de que el jugador esté en el grupo "Player"
+			print("CHOQUE")
+			queue_free()
