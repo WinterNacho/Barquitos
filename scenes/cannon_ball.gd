@@ -6,7 +6,7 @@ extends Area3D
 @export var target_velocity_penalty: int = 0 #porcentaje entre 0 y 100 de penalty en la velocidad del enemigo
 @export var target_opposite_direction = false #para cambiarle la direccion al barco enemigo
 @export var target_low_visibility = false #para que el enemigo tenga poca vision
-@export var target_freeze = true #para que el enemigo no se pueda mover
+@export var target_freeze = false #para que el enemigo no se pueda mover
 
 var vertical_speed = 0
 var parent_player = null

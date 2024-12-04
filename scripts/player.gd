@@ -61,25 +61,37 @@ func _physics_process(delta):
 		# Movimiento hacia adelante
 		if Input.is_action_pressed("move_forward"):
 			if (sailing_camera):
-				velocity += direction * speed * delta
+				if actual_state == state.confused:
+					velocity += -direction * speed * delta * 0.5
+				else:
+					velocity += direction * speed * delta
 			else:
 				cannon.rotate_x(delta)
 		# Movimiento hacia y atrás
 		if Input.is_action_pressed("move_back"):
 			if (sailing_camera):
-				velocity += -direction * speed * delta * 0.5
+				if actual_state == state.confused:
+					velocity += direction * speed * delta
+				else:
+					velocity += -direction * speed * delta * 0.5
 			else:
 				cannon.rotate_x(-delta)
 		# Movimiento hacia la derecha
 		if Input.is_action_pressed("move_right"):
 			if (sailing_camera):
-				direction = direction.rotated(-axis, rotation_speed * delta).normalized()
+				if actual_state == state.confused:
+					direction = direction.rotated(axis, rotation_speed * delta).normalized()
+				else:
+					direction = direction.rotated(-axis, rotation_speed * delta).normalized()
 			else:
 				cannon_base.rotate_y(-delta)
 		# Movimiento hacia la izquierda
 		if Input.is_action_pressed("move_left"):
 			if (sailing_camera):
-				direction = direction.rotated(axis, rotation_speed * delta).normalized()
+				if actual_state == state.confused:
+					direction = direction.rotated(-axis, rotation_speed * delta).normalized()
+				else:
+					direction = direction.rotated(axis, rotation_speed * delta).normalized()
 			else:
 				cannon_base.rotate_y(delta)
 
@@ -113,6 +125,8 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func _on_timer_timeout():
 	print("termino timer")
 	if actual_state == state.freeze:
+		max_velocity = 0.2
+	if actual_state == state.slow:
 		max_velocity = 0.2
 	actual_state = state.normal
 	return
@@ -165,9 +179,10 @@ func die():
 
 func slow(velocity_penalty: int):
 	# velocity_penalty: porcentaje entre 0 y 100 de penalty en la velocidad del enemigo
-	var current_speed = self.speed
+	actual_state = state.slow
 	#disminuir la velocidad del barco por un tiempo y luego devolverla a la normalidad
-	self.speed = current_speed
+	max_velocity = max_velocity * velocity_penalty / 100
+	timer.start(10)
 	return
 
 func freeze():
@@ -179,6 +194,9 @@ func freeze():
 	return
 	
 func opposite_direction():
+	print("direccion opuesta")
+	actual_state = state.confused
+	timer.start(10)
 	return
 	
 func low_visibility():

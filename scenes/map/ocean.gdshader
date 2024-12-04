@@ -232,7 +232,7 @@ vec3 water(vec2 uv, vec3 cdir, float iTime)
 
     uv += a * h;
 
-    
+
 
     // Texture distortion
 
@@ -252,7 +252,7 @@ vec3 water(vec2 uv, vec3 cdir, float iTime)
 
     );
 
-    
+
 
     vec3 ret = mix(WATER_COL.rgb, WATER2_COL.rgb, waterlayer(uv + dist.xy));
 
