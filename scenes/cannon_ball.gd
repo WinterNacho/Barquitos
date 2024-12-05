@@ -11,6 +11,8 @@ extends Area3D
 var vertical_speed = 0
 var parent_player = null
 
+enum state {normal, slow, freeze, confused, inked}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.body_entered.connect(Callable(self, "_on_body_entered"))
@@ -31,6 +33,21 @@ func set_parent_player(player):
 func _set_direction(dir: Vector3):
 	direction = dir
 
+func set_state(new_state):
+	match new_state:
+		state.slow:
+			print("cannonball_state = slow")
+			target_velocity_penalty = 45
+		state.freeze:
+			print("cannonball_state = freeze")
+			target_freeze = true
+		state.confused:
+			print("cannonball_state = confused")
+			target_opposite_direction = true
+		state.inked:
+			print("cannonball_state = inked")
+			target_low_visibility = true
+	return
 
 func _on_body_entered(body):
 	if body.is_in_group("player") and body!= parent_player:  # Asegúrate de que el jugador esté en el grupo "Player"
