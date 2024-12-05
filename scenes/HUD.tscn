@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://crg0y7atvdbww"]
+[gd_scene load_steps=7 format=3 uid="uid://crg0y7atvdbww"]
 
 [ext_resource type="Script" path="res://scripts/label.gd" id="1_w5qe0"]
 [ext_resource type="Texture2D" uid="uid://b5avlge85xrm8" path="res://scenes/ui/HUD/HUD1.png" id="4_hfg5k"]
@@ -861,9 +861,6 @@ cache/0/29/0/underline_position = 0.0
 cache/0/29/0/underline_thickness = 0.0
 cache/0/29/0/scale = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_57t7t"]
-load_path = "res://.godot/imported/freeze.png-67f2308bb78f78c0f0c06f44904816a9.ctex"
-
 [node name="Hud" type="Node2D"]
 
 [node name="Label1" type="Label" parent="."]
@@ -913,26 +910,6 @@ horizontal_alignment = 1
 justification_flags = 160
 script = ExtResource("1_w5qe0")
 
-[node name="Status" type="Label" parent="Label2"]
-layout_mode = 0
-offset_left = -1047.88
-offset_top = -2.2297
-offset_right = -592.882
-offset_bottom = 213.77
-scale = Vector2(0.787932, 0.896983)
-theme_override_fonts/font = SubResource("FontFile_o7pkr")
-theme_override_font_sizes/font_size = 166
-text = "
-
-"
-justification_flags = 160
-
-[node name="Freeze" type="Sprite2D" parent="Label2/Status"]
-visible = false
-position = Vector2(169.748, 85.2859)
-scale = Vector2(0.270189, 0.236905)
-texture = SubResource("CompressedTexture2D_57t7t")
-
 [node name="Hud" type="Sprite2D" parent="Label2"]
 show_behind_parent = true
 position = Vector2(110, 99.877)
@@ -965,26 +942,6 @@ text = "
 "
 justification_flags = 160
 script = ExtResource("1_w5qe0")
-
-[node name="Status" type="Label" parent="Label3"]
-layout_mode = 0
-offset_left = -88.8402
-offset_top = -222.97
-offset_right = 366.16
-offset_bottom = -6.9697
-scale = Vector2(0.787932, 0.896983)
-theme_override_fonts/font = SubResource("FontFile_o7pkr")
-theme_override_font_sizes/font_size = 166
-text = "
-
-"
-justification_flags = 160
-
-[node name="Freeze" type="Sprite2D" parent="Label3/Status"]
-visible = false
-position = Vector2(169.748, 85.2859)
-scale = Vector2(0.270189, 0.236905)
-texture = SubResource("CompressedTexture2D_57t7t")
 
 [node name="Hud" type="Sprite2D" parent="Label3"]
 show_behind_parent = true
@@ -1019,26 +976,6 @@ text = "
 horizontal_alignment = 2
 justification_flags = 160
 script = ExtResource("1_w5qe0")
-
-[node name="Status4" type="Label" parent="Label4"]
-layout_mode = 0
-offset_left = -991.202
-offset_top = -294.32
-offset_right = -536.202
-offset_bottom = -237.32
-scale = Vector2(0.787932, 0.896983)
-theme_override_fonts/font = SubResource("FontFile_o7pkr")
-theme_override_font_sizes/font_size = 166
-text = "
-
-"
-justification_flags = 160
-
-[node name="Freeze" type="Sprite2D" parent="Label4/Status4"]
-visible = false
-position = Vector2(160.864, -122.076)
-scale = Vector2(0.270189, 0.236905)
-texture = SubResource("CompressedTexture2D_57t7t")
 
 [node name="Hud" type="Sprite2D" parent="Label4"]
 show_behind_parent = true

@@ -14,6 +14,7 @@ signal spawn_box_destroyed
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		body.getSpecialBall()
 		print("CHOQUE")
 		emit_signal("spawn_box_destroyed")
 		queue_free()

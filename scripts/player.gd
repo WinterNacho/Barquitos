@@ -203,6 +203,20 @@ func die():
 	Global.nombres.erase(labelName)
 
 
+func getSpecialBall():
+	var ball =randi_range(1, 4)
+	print (ball)
+	match ball:
+		state.slow:
+			cannonball_state = state.slow
+		state.freeze:
+			cannonball_state = state.freeze	
+		state.confused:
+			cannonball_state = state.confused
+		#state.inked:
+			#actual_state = state.inked
+			
+	return
 
 func slow(velocity_penalty: int):
 	# velocity_penalty: porcentaje entre 0 y 100 de penalty en la velocidad del enemigo
