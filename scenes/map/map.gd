@@ -23,12 +23,8 @@ func _ready() -> void:
 		
 
 func is_end_game_question_mark():
-	print("omero")
-	var count = 0
-	for player in Game.players:
-		if player.current_health > 0:
-			count+=1
-	if count<=1:
+
+	if Global.nombres.size()<=1:
 		end_game()
 
 func end_game() -> void:
@@ -36,4 +32,4 @@ func end_game() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	is_end_game_question_mark()
