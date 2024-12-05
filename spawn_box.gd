@@ -10,12 +10,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_body_entered(body):
-	if body.is_in_group("player"):  # Asegúrate de que el jugador esté en el grupo "Player"
-		print("CHOQUE")
-
+signal spawn_box_destroyed
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):  # Asegúrate de que el jugador esté en el grupo "Player"
-			print("CHOQUE")
-			queue_free()
+	if body.is_in_group("player"):
+		print("CHOQUE")
+		emit_signal("spawn_box_destroyed")
+		queue_free()

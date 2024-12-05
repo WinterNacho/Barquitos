@@ -93,3 +93,5 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Sky"]
 environment = SubResource("Environment_n2nwd")
+
+[node name="SpawnTimer" type="Timer" parent="."]
