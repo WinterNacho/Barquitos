@@ -15,11 +15,6 @@ const CANNON_BALL = preload("res://scenes/cannon_ball.tscn")
 @onready var cannon_exit: Marker3D = $"cannon/cannon/cannon_right 12/cannon_exit"
 @onready var labelName
 @onready var timer = $Timer
-#velas del barco
-@onready var sail_back = $"ship/sail_back 1"
-@onready var sail_front = $"ship/sail_front 1"
-@onready var sail_middle = $"ship/sail_middle 1"
-@onready var sail_mesh_2 = "res://resources/boats/sail_mesh_2.tres"
 
 @export var speed = 0.3
 @export var friction = 0.995
@@ -50,8 +45,8 @@ var cannonball_state = state.normal
 var wave_time = 0.0 
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("test"):
-		change_color()
+	#if Input.is_action_just_pressed("test"):
+		#set_color(0)
 	if is_multiplayer_authority():
 		# Cambio de cámara
 		if Input.is_action_just_pressed("change_camera"):
@@ -142,8 +137,24 @@ func _on_timer_timeout():
 func look_at_mapcenter():
 	direction = position.direction_to(Vector3(0,0,0))
 	
-func change_color():
-	sail_back = sail_mesh_2
+func set_color(i: int):
+	match i:
+		0:
+			$"ship/sail_back 1".show()
+			$"ship/sail_front 1".show()
+			$"ship/sail_middle 1".show()
+		1:
+			$"ship/sail_back 2".show()
+			$"ship/sail_front 2".show()
+			$"ship/sail_middle 2".show()
+		2:
+			$"ship/sail_back 3".show()
+			$"ship/sail_front 3".show()
+			$"ship/sail_middle 3".show()
+		3:
+			$"ship/sail_back 4".show()
+			$"ship/sail_front 4".show()
+			$"ship/sail_middle 4".show()
 	return
 
 @rpc("authority")

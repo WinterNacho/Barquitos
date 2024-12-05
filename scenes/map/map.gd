@@ -17,6 +17,8 @@ func _ready() -> void:
 		players.add_child(player_inst)
 		player_inst.setup(player_data)
 		player_inst.global_position =  spawn_point.get_child(i).global_position
+		player_inst.look_at_mapcenter()
+		player_inst.set_color(i)
 		print(i)
 		HUD.get_node("Label" + str(i+1)).set_player(player_inst,player_data)
 		print(HUD.get_node("Label2").text)
