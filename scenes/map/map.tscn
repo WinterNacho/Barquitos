@@ -43,6 +43,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, -0.2, 100)
 [node name="sp4" type="Marker3D" parent="SpawnPoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -0.2, -100)
 
+[node name="BulletSpawnPoints" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="BulletSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.655, 0, 47.5423)
+
+[node name="Marker3D2" type="Marker3D" parent="BulletSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.655, 0, -47.542)
+
+[node name="Marker3D3" type="Marker3D" parent="BulletSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.655, 0, 47.542)
+
+[node name="Marker3D4" type="Marker3D" parent="BulletSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.655, 0, -47.542)
+
+[node name="Marker3D5" type="Marker3D" parent="BulletSpawnPoints"]
+
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="Wall" parent="Walls" instance=ExtResource("2_fjacu")]
@@ -77,3 +93,5 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Sky"]
 environment = SubResource("Environment_n2nwd")
+
+[node name="SpawnTimer" type="Timer" parent="."]
