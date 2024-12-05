@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://3v6q7v5ihpij"]
+[gd_scene load_steps=43 format=4 uid="uid://3v6q7v5ihpij"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_785fi"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_c1pj5"]
@@ -235,6 +235,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2tpbl")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kr4t"]
+albedo_color = Color(0, 0.431373, 0.27451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a42ti"]
+albedo_color = Color(0.917273, 0.596588, 0.00449041, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlbeg"]
+albedo_color = Color(0.73011, 0.348161, 0.509359, 1)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_ewud7"]
 _surfaces = [{
 "aabb": AABB(-2.70769, 0, 0, 2.70769, 2.39719, 0.609046),
@@ -289,7 +298,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ewud7")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_2jdak"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qgcw"]
+albedo_color = Color(0, 0.431373, 0.27451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40jmk"]
+albedo_color = Color(0.917647, 0.596078, 0.00392157, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2v7se"]
+albedo_color = Color(0.729412, 0.34902, 0.509804, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_otqav"]
 _surfaces = [{
 "aabb": AABB(-2.70769, 0, 0, 2.70769, 2.97219, 0.609046),
 "format": 34896613377,
@@ -341,7 +359,16 @@ _surfaces = [{
 "vertex_data": PackedByteArray("//8AAPb7/7///wAA/3//vwAAAAD2+/+/AAAAAP9//7///3IICAT/////cgj/f///AAByCAgE/////3II9vv//wAAcgj2+///AAByCP9//////xcECAT/////cggIBP//AAAXBAgE//8AAHIICAT/////AAD/f/////8XBAgE//8AAAAA/3///wAAFwQIBP////8AAPb7AIAAAAAA9vsAgP//cgj2+wCAAAByCPb7AIAAABcECAT/vwAAcggIBP+/AAAAAP9//78AAHII/3//vwAAAAD2+/+/AAByCPb7/7///3IICAT/v///FwQIBP+///9yCP9//7///wAA/3//v///AAD2+/+///9yCPb7/7///9D3////v///0Pf/f/+/AADQ9////7///9D3AAD/vwAA0PcAAP+/AADQ9/9//////9D3//8AgAAA0Pf//wCA////////AIAAAP////8AgAAA0PcAAP+/AADn+wAA/78AAND3/3//vwAA///2e/+/AAD//////78AAND3////vwAA5/sAAP/////n+wAA//8AAP//9nv////////2e///AADQ9wAA/////9D3AAD//wAA5/sAAP/////n+wAA////////9nv/////////////AAD///Z7//8AAP//////////5/sAAP+////Q9wAA/7//////9nv/v///0Pf/f/+//////////7///9D3////vwAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+//3//v/9//7//f////3////9/////f///fKX//3yl//98pf//fKX///9/////f////3////9/////f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/38AAP9/AAAAAP9/AAD/fwAA/38AAP9/AAD/f/9//z//f////3////9/////f////3////9/////f////3////9/////f////3+B2v9/gdr/f4Ha/3+B2v9/////f////3////9/////f/+//3//v/9//7//f/+//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_2jdak")
+shadow_mesh = SubResource("ArrayMesh_otqav")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73hw2"]
+albedo_color = Color(0, 0.431373, 0.27451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytxxc"]
+albedo_color = Color(0.917647, 0.596078, 0.00392157, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjd3k"]
+albedo_color = Color(0.729412, 0.34902, 0.509804, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_osh4e"]
 _surfaces = [{
@@ -573,18 +600,84 @@ skeleton = NodePath("")
 
 [node name="sail_back 1" type="MeshInstance3D" parent="ship"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 3.03425, 1.8644)
+visible = false
 mesh = SubResource("ArrayMesh_63ig0")
 skeleton = NodePath("")
 
+[node name="sail_back 2" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 3.03425, 1.8644)
+visible = false
+mesh = SubResource("ArrayMesh_63ig0")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_7kr4t")
+
+[node name="sail_back 3" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 3.03425, 1.8644)
+visible = false
+mesh = SubResource("ArrayMesh_63ig0")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a42ti")
+
+[node name="sail_back 4" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 3.03425, 1.8644)
+visible = false
+mesh = SubResource("ArrayMesh_63ig0")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_tlbeg")
+
 [node name="sail_front 1" type="MeshInstance3D" parent="ship"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 1.60425, -3.2006)
+visible = false
 mesh = SubResource("ArrayMesh_33pkq")
 skeleton = NodePath("")
 
+[node name="sail_front 2" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 1.60425, -3.2006)
+visible = false
+mesh = SubResource("ArrayMesh_33pkq")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_0qgcw")
+
+[node name="sail_front 3" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 1.60425, -3.2006)
+visible = false
+mesh = SubResource("ArrayMesh_33pkq")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_40jmk")
+
+[node name="sail_front 4" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 1.60425, -3.2006)
+visible = false
+mesh = SubResource("ArrayMesh_33pkq")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_2v7se")
+
 [node name="sail_middle 1" type="MeshInstance3D" parent="ship"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 1.60425, -1.5456)
+visible = false
 mesh = SubResource("ArrayMesh_kum4r")
 skeleton = NodePath("")
+
+[node name="sail_middle 2" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 1.60425, -1.5456)
+visible = false
+mesh = SubResource("ArrayMesh_kum4r")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_73hw2")
+
+[node name="sail_middle 3" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 1.60425, -1.5456)
+visible = false
+mesh = SubResource("ArrayMesh_kum4r")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ytxxc")
+
+[node name="sail_middle 4" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35384, 1.60425, -1.5456)
+visible = false
+mesh = SubResource("ArrayMesh_kum4r")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_yjd3k")
 
 [node name="steering 1" type="MeshInstance3D" parent="ship"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88765e-15, 2.77592, 1.05056)
