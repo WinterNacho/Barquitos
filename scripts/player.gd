@@ -14,7 +14,8 @@ const CANNON_BALL = preload("res://scenes/cannon_ball.tscn")
 @onready var cannonBall_location = $cannon/CannonBall
 @onready var cannon_exit: Marker3D = $"cannon/cannon/cannon_right 12/cannon_exit"
 @onready var labelName
-@onready var timer = $Timer
+@onready var timer = $TimerState
+@onready var ballTimer = $BallTimer
 
 @export var speed = 0.3
 @export var friction = 0.995
@@ -44,6 +45,8 @@ var cannonball_state = state.normal
 @export var wave_frequency = 1.0
 var wave_time = 0.0 
 
+var can_shoot = true
+
 func _physics_process(delta):
 	#if Input.is_action_just_pressed("test"):
 		#set_color(0)
@@ -58,9 +61,8 @@ func _physics_process(delta):
 				cannon_camera.current = false
 			sailing_camera = not sailing_camera
 		# Disparo
-		if Input.is_action_just_pressed("fire"):
+		if Input.is_action_just_pressed("fire") and can_shoot:
 			shoot_cannon_ball()
-			
 		# Movimiento hacia adelante
 		if Input.is_action_pressed("move_forward"):
 			if (sailing_camera):
@@ -188,6 +190,8 @@ func spawn_cannon_ball(spawn_position: Vector3, spawn_direction: Vector3) -> voi
 	get_parent().add_child(cannon_ball_node)
 	cannon_ball_node.global_position = spawn_position
 	cannon_sfx.play()
+	can_shoot = false
+	ballTimer.start(2)
 
 func get_current_health():
 	return current_health
@@ -258,3 +262,9 @@ func setup(player_data: Statics.PlayerData) -> void:
 		camera.current = false
 	Debug.log("admin")
 	Debug.log(player_data.id)
+
+
+func _on_ball_timer_timeout() -> void:
+	can_shoot = true
+	print("cooldown ended")
+	return
