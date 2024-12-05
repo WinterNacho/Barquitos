@@ -15,6 +15,11 @@ const CANNON_BALL = preload("res://scenes/cannon_ball.tscn")
 @onready var cannon_exit: Marker3D = $"cannon/cannon/cannon_right 12/cannon_exit"
 @onready var labelName
 @onready var timer = $Timer
+#velas del barco
+@onready var sail_back = $"ship/sail_back 1"
+@onready var sail_front = $"ship/sail_front 1"
+@onready var sail_middle = $"ship/sail_middle 1"
+@onready var sail_mesh_2 = "res://resources/boats/sail_mesh_2.tres"
 
 @export var speed = 0.3
 @export var friction = 0.995
@@ -38,12 +43,15 @@ var invulnerability = 50.0
 
 enum state {normal, slow, freeze, confused, inked}
 var actual_state = state.normal
+var cannonball_state = state.normal
 
 @export var wave_amplitude = 0.005 
 @export var wave_frequency = 1.0
 var wave_time = 0.0 
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("test"):
+		change_color()
 	if is_multiplayer_authority():
 		# Cambio de cámara
 		if Input.is_action_just_pressed("change_camera"):
@@ -130,7 +138,13 @@ func _on_timer_timeout():
 		max_velocity = 0.2
 	actual_state = state.normal
 	return
+
+func look_at_mapcenter():
+	direction = position.direction_to(Vector3(0,0,0))
 	
+func change_color():
+	sail_back = sail_mesh_2
+	return
 
 @rpc("authority")
 func take_damage(damage):
@@ -157,6 +171,7 @@ func request_shoot(spawn_position: Vector3, spawn_direction: Vector3) -> void:
 @rpc("any_peer", "call_local", "reliable")
 func spawn_cannon_ball(spawn_position: Vector3, spawn_direction: Vector3) -> void:
 	var cannon_ball_node = CANNON_BALL.instantiate()
+	cannon_ball_node.set_state(cannonball_state)
 	cannon_ball_node.set_parent_player(self)
 	cannon_ball_node._set_direction(spawn_direction)
 	get_parent().add_child(cannon_ball_node)
@@ -201,7 +216,6 @@ func opposite_direction():
 	
 func low_visibility():
 	return
-
 	
 func setup(player_data: Statics.PlayerData) -> void:
 	name = str(player_data.id)
