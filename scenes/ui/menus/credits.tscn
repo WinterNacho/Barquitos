@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh1govoevhhvx"]
+[gd_scene load_steps=5 format=3 uid="uid://bh1govoevhhvx"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/credits.gd" id="1_bo4t8"]
 [ext_resource type="PackedScene" uid="uid://dqbtgubbo0v5q" path="res://scenes/ui/menus/menu_background.tscn" id="2_6w0y5"]
+
+[sub_resource type="SystemFont" id="SystemFont_hdf6m"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hq1wh"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -15,6 +21,15 @@ script = ExtResource("1_bo4t8")
 [node name="MenuBackground" parent="." instance=ExtResource("2_6w0y5")]
 layout_mode = 1
 
+[node name="Credits" type="Label" parent="."]
+layout_mode = 2
+offset_left = 509.0
+offset_top = 46.0
+offset_right = 646.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -23,14 +38,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Credits" type="Label" parent="MarginContainer"]
-layout_mode = 2
-text = "CREDITS"
-horizontal_alignment = 1
-
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "back"
+size_flags_vertical = 4
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 64)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0.509665, 0.378109, 1)
+theme_override_fonts/font = SubResource("SystemFont_hdf6m")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hq1wh")
+text = "Back"
+flat = true
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Control2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Ignacio Muñoz Otárola
+José Arriagada Q.
+Valentina Rojas Victoriano
+Martín Carreño Á."
+fit_content = true
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b]Models:[/b]
+[url=https://kenney.itch.io/kenney-game-assets]Kenney Game Assets[/url] by Kenney  
+
+[b]Shaders:[/b]
+[url=https://godotshaders.com/shader/wind-waker-2d-water-shader-canvas_item/]Wind Waker 2D Water Shader[/url] by GeistDev
+[url=https://godotshaders.com/shader/stylized-sky/]Stylized Sky[/url] by Gotibo
+
+[b]Audio:[/b]  
+- [url=https://www.looperman.com/loops/detail/364613/hyphen-iv-angelic-choir-free-98bpm-orchestral-vocal-loop]Hyphen IV Angelic Choir[/url] by KingKawng  
+- [url=https://freesound.org/people/emainta/sounds/648859/]Sea Water[/url] by emainta  
+- [url=https://freesound.org/people/HMTSCCSound/sounds/554651/]Wood Planks Sounds[/url] by HMTSCCSound  
+- [url=https://uppbeat.io/sfx/cannon-fired/1613/3889]Cannon fired (1)[/url] by Gamemaster Audio  
+- [url=https://pixabay.com/sound-effects/wooden-ship-break-85277/]Ship Damage[/url] by freesound_community
+"
+fit_content = true
