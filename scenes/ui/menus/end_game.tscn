@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5qvayc77o8fr"]
+[gd_scene load_steps=4 format=3 uid="uid://c5qvayc77o8fr"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/end_game.gd" id="1_px4p6"]
-[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="1_vx27n"]
 [ext_resource type="Script" path="res://scenes/ui/menus/end_game_button.gd" id="2_cgaab"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bbxtk"]
@@ -23,32 +22,25 @@ offset_bottom = 648.0
 color = Color(0.0313726, 0.4, 0.686275, 1)
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 62.0
-offset_top = 120.0
-offset_right = 743.0
-offset_bottom = 337.0
+layout_mode = 2
+offset_left = 1.0
+offset_top = 140.0
+offset_right = 1153.0
+offset_bottom = 278.0
 text = "GG"
 label_settings = SubResource("LabelSettings_bbxtk")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 763.0
-offset_top = 15.0
-offset_right = 964.0
-offset_bottom = 446.0
-texture = ExtResource("1_vx27n")
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.32
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.553
 anchor_bottom = 0.678
-offset_left = 75.36
-offset_top = 43.0
-offset_right = -42.0
-offset_bottom = -16.344
+offset_left = 165.36
+offset_top = -14.0
+offset_right = -13.056
+offset_bottom = -73.344
 text = "EXIT"
 script = ExtResource("2_cgaab")
