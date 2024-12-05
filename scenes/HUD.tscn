@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://crg0y7atvdbww"]
+[gd_scene load_steps=8 format=3 uid="uid://crg0y7atvdbww"]
 
 [ext_resource type="Script" path="res://scripts/label.gd" id="1_w5qe0"]
+[ext_resource type="Texture2D" uid="uid://b5avlge85xrm8" path="res://scenes/ui/HUD/HUD1.png" id="4_hfg5k"]
+[ext_resource type="Texture2D" uid="uid://rpwu575v4xiw" path="res://scenes/ui/HUD/HUD2.png" id="5_rx48l"]
+[ext_resource type="Texture2D" uid="uid://fqubrpo2sm6u" path="res://scenes/ui/HUD/HUD3.png" id="6_61am7"]
+[ext_resource type="Texture2D" uid="uid://b5kisrrdlmopy" path="res://scenes/ui/HUD/HUD4.png" id="7_sirgq"]
 
 [sub_resource type="FontFile" id="FontFile_o7pkr"]
 subpixel_positioning = 0
@@ -591,38 +595,369 @@ cache/0/126/0/descent = 0.0
 cache/0/126/0/underline_position = 0.0
 cache/0/126/0/underline_thickness = 0.0
 cache/0/126/0/scale = 1.0
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/5/0/ascent = 0.0
+cache/0/5/0/descent = 0.0
+cache/0/5/0/underline_position = 0.0
+cache/0/5/0/underline_thickness = 0.0
+cache/0/5/0/scale = 1.0
+cache/0/6/0/ascent = 0.0
+cache/0/6/0/descent = 0.0
+cache/0/6/0/underline_position = 0.0
+cache/0/6/0/underline_thickness = 0.0
+cache/0/6/0/scale = 1.0
+cache/0/7/0/ascent = 0.0
+cache/0/7/0/descent = 0.0
+cache/0/7/0/underline_position = 0.0
+cache/0/7/0/underline_thickness = 0.0
+cache/0/7/0/scale = 1.0
+cache/0/8/0/ascent = 0.0
+cache/0/8/0/descent = 0.0
+cache/0/8/0/underline_position = 0.0
+cache/0/8/0/underline_thickness = 0.0
+cache/0/8/0/scale = 1.0
+cache/0/9/0/ascent = 0.0
+cache/0/9/0/descent = 0.0
+cache/0/9/0/underline_position = 0.0
+cache/0/9/0/underline_thickness = 0.0
+cache/0/9/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+cache/0/23/0/ascent = 0.0
+cache/0/23/0/descent = 0.0
+cache/0/23/0/underline_position = 0.0
+cache/0/23/0/underline_thickness = 0.0
+cache/0/23/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/55/0/ascent = 0.0
+cache/0/55/0/descent = 0.0
+cache/0/55/0/underline_position = 0.0
+cache/0/55/0/underline_thickness = 0.0
+cache/0/55/0/scale = 1.0
+cache/0/60/0/ascent = 0.0
+cache/0/60/0/descent = 0.0
+cache/0/60/0/underline_position = 0.0
+cache/0/60/0/underline_thickness = 0.0
+cache/0/60/0/scale = 1.0
+cache/0/62/0/ascent = 0.0
+cache/0/62/0/descent = 0.0
+cache/0/62/0/underline_position = 0.0
+cache/0/62/0/underline_thickness = 0.0
+cache/0/62/0/scale = 1.0
+cache/0/63/0/ascent = 0.0
+cache/0/63/0/descent = 0.0
+cache/0/63/0/underline_position = 0.0
+cache/0/63/0/underline_thickness = 0.0
+cache/0/63/0/scale = 1.0
+cache/0/59/0/ascent = 0.0
+cache/0/59/0/descent = 0.0
+cache/0/59/0/underline_position = 0.0
+cache/0/59/0/underline_thickness = 0.0
+cache/0/59/0/scale = 1.0
+cache/0/58/0/ascent = 0.0
+cache/0/58/0/descent = 0.0
+cache/0/58/0/underline_position = 0.0
+cache/0/58/0/underline_thickness = 0.0
+cache/0/58/0/scale = 1.0
+cache/0/57/0/ascent = 0.0
+cache/0/57/0/descent = 0.0
+cache/0/57/0/underline_position = 0.0
+cache/0/57/0/underline_thickness = 0.0
+cache/0/57/0/scale = 1.0
+cache/0/54/0/ascent = 0.0
+cache/0/54/0/descent = 0.0
+cache/0/54/0/underline_position = 0.0
+cache/0/54/0/underline_thickness = 0.0
+cache/0/54/0/scale = 1.0
+cache/0/53/0/ascent = 0.0
+cache/0/53/0/descent = 0.0
+cache/0/53/0/underline_position = 0.0
+cache/0/53/0/underline_thickness = 0.0
+cache/0/53/0/scale = 1.0
+cache/0/52/0/ascent = 0.0
+cache/0/52/0/descent = 0.0
+cache/0/52/0/underline_position = 0.0
+cache/0/52/0/underline_thickness = 0.0
+cache/0/52/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/49/0/ascent = 0.0
+cache/0/49/0/descent = 0.0
+cache/0/49/0/underline_position = 0.0
+cache/0/49/0/underline_thickness = 0.0
+cache/0/49/0/scale = 1.0
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
+cache/0/47/0/ascent = 0.0
+cache/0/47/0/descent = 0.0
+cache/0/47/0/underline_position = 0.0
+cache/0/47/0/underline_thickness = 0.0
+cache/0/47/0/scale = 1.0
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/45/0/ascent = 0.0
+cache/0/45/0/descent = 0.0
+cache/0/45/0/underline_position = 0.0
+cache/0/45/0/underline_thickness = 0.0
+cache/0/45/0/scale = 1.0
+cache/0/44/0/ascent = 0.0
+cache/0/44/0/descent = 0.0
+cache/0/44/0/underline_position = 0.0
+cache/0/44/0/underline_thickness = 0.0
+cache/0/44/0/scale = 1.0
+cache/0/43/0/ascent = 0.0
+cache/0/43/0/descent = 0.0
+cache/0/43/0/underline_position = 0.0
+cache/0/43/0/underline_thickness = 0.0
+cache/0/43/0/scale = 1.0
+cache/0/42/0/ascent = 0.0
+cache/0/42/0/descent = 0.0
+cache/0/42/0/underline_position = 0.0
+cache/0/42/0/underline_thickness = 0.0
+cache/0/42/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/39/0/ascent = 0.0
+cache/0/39/0/descent = 0.0
+cache/0/39/0/underline_position = 0.0
+cache/0/39/0/underline_thickness = 0.0
+cache/0/39/0/scale = 1.0
+cache/0/38/0/ascent = 0.0
+cache/0/38/0/descent = 0.0
+cache/0/38/0/underline_position = 0.0
+cache/0/38/0/underline_thickness = 0.0
+cache/0/38/0/scale = 1.0
+cache/0/37/0/ascent = 0.0
+cache/0/37/0/descent = 0.0
+cache/0/37/0/underline_position = 0.0
+cache/0/37/0/underline_thickness = 0.0
+cache/0/37/0/scale = 1.0
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+cache/0/34/0/ascent = 0.0
+cache/0/34/0/descent = 0.0
+cache/0/34/0/underline_position = 0.0
+cache/0/34/0/underline_thickness = 0.0
+cache/0/34/0/scale = 1.0
+cache/0/33/0/ascent = 0.0
+cache/0/33/0/descent = 0.0
+cache/0/33/0/underline_position = 0.0
+cache/0/33/0/underline_thickness = 0.0
+cache/0/33/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/29/0/ascent = 0.0
+cache/0/29/0/descent = 0.0
+cache/0/29/0/underline_position = 0.0
+cache/0/29/0/underline_thickness = 0.0
+cache/0/29/0/scale = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_57t7t"]
+load_path = "res://.godot/imported/freeze.png-67f2308bb78f78c0f0c06f44904816a9.ctex"
 
 [node name="Hud" type="Node2D"]
 
 [node name="Label1" type="Label" parent="."]
-offset_right = 455.0
-offset_bottom = 216.0
+offset_right = 159.0
+offset_bottom = 47.0
 scale = Vector2(0.787932, 0.896983)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_o7pkr")
-theme_override_font_sizes/font_size = 166
-text = "
-
-"
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
 justification_flags = 160
 script = ExtResource("1_w5qe0")
+
+[node name="Hud" type="Sprite2D" parent="Label1"]
+show_behind_parent = true
+position = Vector2(128.184, 99.2215)
+scale = Vector2(0.396205, 0.348036)
+texture = ExtResource("4_hfg5k")
+
+[node name="Vida" type="Label" parent="Label1"]
+custom_minimum_size = Vector2(0.065, 0.2)
+layout_mode = 0
+offset_left = 25.3829
+offset_top = 82.4988
+offset_right = 75.3829
+offset_bottom = 122.499
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="State" type="Sprite2D" parent="Label1"]
+position = Vector2(175, 30)
+
+[node name="Cannonball" type="Sprite2D" parent="Label1"]
+scale = Vector2(1.26915, 1.11485)
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 788.0
-offset_top = 3.0
-offset_right = 1243.0
-offset_bottom = 225.0
+offset_left = 965.665
+offset_top = 1.0
+offset_right = 1124.67
+offset_bottom = 48.0
+scale = Vector2(0.787932, 0.896983)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_o7pkr")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+justification_flags = 160
+script = ExtResource("1_w5qe0")
+
+[node name="Status" type="Label" parent="Label2"]
+layout_mode = 0
+offset_left = -1047.88
+offset_top = -2.2297
+offset_right = -592.882
+offset_bottom = 213.77
 scale = Vector2(0.787932, 0.896983)
 theme_override_fonts/font = SubResource("FontFile_o7pkr")
 theme_override_font_sizes/font_size = 166
-horizontal_alignment = 2
+text = "
+
+"
 justification_flags = 160
-script = ExtResource("1_w5qe0")
+
+[node name="Freeze" type="Sprite2D" parent="Label2/Status"]
+visible = false
+position = Vector2(169.748, 85.2859)
+scale = Vector2(0.270189, 0.236905)
+texture = SubResource("CompressedTexture2D_57t7t")
+
+[node name="Hud" type="Sprite2D" parent="Label2"]
+show_behind_parent = true
+position = Vector2(110, 99.877)
+scale = Vector2(0.395973, 0.347833)
+texture = ExtResource("5_rx48l")
+
+[node name="Vida" type="Label" parent="Label2"]
+custom_minimum_size = Vector2(0.065, 0.2)
+layout_mode = 0
+offset_left = 159.075
+offset_top = 81.3839
+offset_right = 209.075
+offset_bottom = 123.384
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="State" type="Sprite2D" parent="Label2"]
+position = Vector2(170, 30)
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 3.0
-offset_top = 450.0
-offset_right = 458.0
-offset_bottom = 672.0
+offset_left = 2.0
+offset_top = 603.0
+offset_right = 161.0
+offset_bottom = 650.0
 scale = Vector2(0.787932, 0.896983)
 theme_override_fonts/font = SubResource("FontFile_o7pkr")
 theme_override_font_sizes/font_size = 166
@@ -631,11 +966,51 @@ text = "
 justification_flags = 160
 script = ExtResource("1_w5qe0")
 
+[node name="Status" type="Label" parent="Label3"]
+layout_mode = 0
+offset_left = -88.8402
+offset_top = -222.97
+offset_right = 366.16
+offset_bottom = -6.9697
+scale = Vector2(0.787932, 0.896983)
+theme_override_fonts/font = SubResource("FontFile_o7pkr")
+theme_override_font_sizes/font_size = 166
+text = "
+
+"
+justification_flags = 160
+
+[node name="Freeze" type="Sprite2D" parent="Label3/Status"]
+visible = false
+position = Vector2(169.748, 85.2859)
+scale = Vector2(0.270189, 0.236905)
+texture = SubResource("CompressedTexture2D_57t7t")
+
+[node name="Hud" type="Sprite2D" parent="Label3"]
+show_behind_parent = true
+position = Vector2(124.376, -50)
+scale = Vector2(0.395973, 0.347833)
+texture = ExtResource("6_61am7")
+
+[node name="Vida" type="Label" parent="Label3"]
+custom_minimum_size = Vector2(0.065, 0.2)
+layout_mode = 0
+offset_left = 22.845
+offset_top = -65.0
+offset_right = 72.845
+offset_bottom = -23.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="State" type="Sprite2D" parent="Label3"]
+position = Vector2(175, 0)
+
 [node name="Label4" type="Label" parent="."]
-offset_left = 788.0
-offset_top = 450.0
-offset_right = 1243.0
-offset_bottom = 672.0
+offset_left = 965.66
+offset_top = 603.0
+offset_right = 1124.66
+offset_bottom = 650.0
 scale = Vector2(0.787932, 0.896983)
 theme_override_fonts/font = SubResource("FontFile_o7pkr")
 theme_override_font_sizes/font_size = 166
@@ -644,3 +1019,43 @@ text = "
 horizontal_alignment = 2
 justification_flags = 160
 script = ExtResource("1_w5qe0")
+
+[node name="Status4" type="Label" parent="Label4"]
+layout_mode = 0
+offset_left = -991.202
+offset_top = -294.32
+offset_right = -536.202
+offset_bottom = -237.32
+scale = Vector2(0.787932, 0.896983)
+theme_override_fonts/font = SubResource("FontFile_o7pkr")
+theme_override_font_sizes/font_size = 166
+text = "
+
+"
+justification_flags = 160
+
+[node name="Freeze" type="Sprite2D" parent="Label4/Status4"]
+visible = false
+position = Vector2(160.864, -122.076)
+scale = Vector2(0.270189, 0.236905)
+texture = SubResource("CompressedTexture2D_57t7t")
+
+[node name="Hud" type="Sprite2D" parent="Label4"]
+show_behind_parent = true
+position = Vector2(110, -50)
+scale = Vector2(0.395973, 0.347833)
+texture = ExtResource("7_sirgq")
+
+[node name="Vida" type="Label" parent="Label4"]
+custom_minimum_size = Vector2(0.065, 0.2)
+layout_mode = 0
+offset_left = 159.075
+offset_top = -65.0
+offset_right = 209.075
+offset_bottom = -23.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="State" type="Sprite2D" parent="Label4"]
+position = Vector2(175, 0)
