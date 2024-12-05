@@ -8,7 +8,6 @@ func _ready() -> void:
 	pass
 
 
-
 func set_player(node,player_data):
 	player = node
 	
@@ -29,6 +28,18 @@ func update_icon():
 			$State.texture = preload("res://scenes/ui/HUD/snowflake.png")
 		3:
 			$State.texture = preload("res://scenes/ui/HUD/confused.png")
+			
+func update_BallType():
+	var  current = player.cannonball_state
+	match current:
+		0:
+			$BallType.texture = null
+		1:
+			$BallType.texture = preload("res://scenes/ui/HUD/snail.png")
+		2:
+			$BallType.texture = preload("res://scenes/ui/HUD/snowflake.png")
+		3:
+			$BallType.texture = preload("res://scenes/ui/HUD/confused.png")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,6 +47,7 @@ func _process(delta: float) -> void:
 		self.visible = false
 	else:
 		update_icon()
+		update_BallType()
 		pass
 		
 	if vida:

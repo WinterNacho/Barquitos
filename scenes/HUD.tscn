@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://crg0y7atvdbww"]
+[gd_scene load_steps=8 format=3 uid="uid://crg0y7atvdbww"]
 
 [ext_resource type="Script" path="res://scripts/label.gd" id="1_w5qe0"]
 [ext_resource type="Texture2D" uid="uid://b5avlge85xrm8" path="res://scenes/ui/HUD/HUD1.png" id="4_hfg5k"]
 [ext_resource type="Texture2D" uid="uid://rpwu575v4xiw" path="res://scenes/ui/HUD/HUD2.png" id="5_rx48l"]
 [ext_resource type="Texture2D" uid="uid://fqubrpo2sm6u" path="res://scenes/ui/HUD/HUD3.png" id="6_61am7"]
+[ext_resource type="Texture2D" uid="uid://b3wwqjciitslt" path="res://scenes/ui/HUD/ink.png" id="6_g4akx"]
 [ext_resource type="Texture2D" uid="uid://b5kisrrdlmopy" path="res://scenes/ui/HUD/HUD4.png" id="7_sirgq"]
 
 [sub_resource type="FontFile" id="FontFile_o7pkr"]
@@ -894,6 +895,9 @@ vertical_alignment = 1
 [node name="State" type="Sprite2D" parent="Label1"]
 position = Vector2(175, 30)
 
+[node name="BallType" type="Sprite2D" parent="Label1"]
+position = Vector2(150, 175)
+
 [node name="Cannonball" type="Sprite2D" parent="Label1"]
 scale = Vector2(1.26915, 1.11485)
 
@@ -930,16 +934,21 @@ vertical_alignment = 1
 [node name="State" type="Sprite2D" parent="Label2"]
 position = Vector2(170, 30)
 
+[node name="BallType" type="Sprite2D" parent="Label2"]
+position = Vector2(70, 175)
+
 [node name="Label3" type="Label" parent="."]
 offset_left = 2.0
 offset_top = 603.0
 offset_right = 161.0
 offset_bottom = 650.0
 scale = Vector2(0.787932, 0.896983)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_o7pkr")
-theme_override_font_sizes/font_size = 166
+theme_override_font_sizes/font_size = 30
 text = "
 "
+horizontal_alignment = 1
 justification_flags = 160
 script = ExtResource("1_w5qe0")
 
@@ -963,17 +972,19 @@ vertical_alignment = 1
 [node name="State" type="Sprite2D" parent="Label3"]
 position = Vector2(175, 0)
 
+[node name="BallType" type="Sprite2D" parent="Label3"]
+position = Vector2(170, -120)
+
 [node name="Label4" type="Label" parent="."]
 offset_left = 965.66
 offset_top = 603.0
 offset_right = 1124.66
 offset_bottom = 650.0
 scale = Vector2(0.787932, 0.896983)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_o7pkr")
-theme_override_font_sizes/font_size = 166
-text = "
-"
-horizontal_alignment = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
 justification_flags = 160
 script = ExtResource("1_w5qe0")
 
@@ -996,3 +1007,12 @@ vertical_alignment = 1
 
 [node name="State" type="Sprite2D" parent="Label4"]
 position = Vector2(175, 0)
+
+[node name="BallType" type="Sprite2D" parent="Label4"]
+position = Vector2(70, -120)
+
+[node name="Ink" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(577, 323)
+scale = Vector2(2.17803, 1.16727)
+texture = ExtResource("6_g4akx")

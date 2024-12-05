@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://global.gd"
 Debug="*res://autoloads/debug.gd"
 Game="*res://autoloads/game.tscn"
+GameData="*res://scripts/game_data.gd"
 
 [global_group]
 

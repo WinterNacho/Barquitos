@@ -1,5 +1,6 @@
 extends Node
 
+var balltype:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,8 @@ signal spawn_box_destroyed
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		body.getSpecialBall()
+		body.getSpecialBall(balltype)
 		print("CHOQUE")
+		print(body.actual_state)
 		emit_signal("spawn_box_destroyed")
 		queue_free()

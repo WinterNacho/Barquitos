@@ -18,7 +18,7 @@ func _ready() -> void:
 	creak_sfx.play()
 	Global.restantes = Game.players.size()
 	if is_multiplayer_authority():
-		spawn_timer.start(15.0)
+		spawn_timer.start(5.0)
 		spawn_timer.connect("timeout", Callable(self, "_on_SpawnTimer_timeout"))
 
 	for i in Game.players.size():
@@ -51,22 +51,27 @@ func random_spawner() -> Node3D:
 	return null
 
 func spawn_spawner_box():
+	var balltype = randi_range(1,3)
 	if current_spawn_boxes >= max_spawn_boxes:
 		return
 	var random_spawn_point = random_spawner()
 	if random_spawn_point:
 		var spawner_box_instance = spawn_box.instantiate()
+		spawner_box_instance.balltype = balltype
 		add_child(spawner_box_instance)
 		spawner_box_instance.global_position = random_spawn_point.global_position
 		current_spawn_boxes += 1 
-		rpc("spawn_spawner_box_at_position", spawner_box_instance.global_position, spawner_box_instance.global_rotation)
+		
+		rpc("spawn_spawner_box_at_position", spawner_box_instance.global_position,balltype)
 		spawner_box_instance.connect("spawn_box_destroyed", Callable(self, "_on_spawn_box_destroyed"))
 
 @rpc("call_remote")
-func spawn_spawner_box_at_position(position: Vector3, rotation: Vector3):
+func spawn_spawner_box_at_position(position: Vector3,balltype: int):
 	var spawner_box_instance = spawn_box.instantiate()
 	add_child(spawner_box_instance)
 	spawner_box_instance.global_position = position
+	spawner_box_instance.balltype = balltype
+	print("balltype" + str(balltype))
 
 @rpc("call_remote")
 func spawn_box_death():

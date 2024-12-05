@@ -3,9 +3,11 @@ extends CharacterBody3D
 
 const CANNON_BALL = preload("res://scenes/cannon_ball.tscn")
 
+
+
 @onready var damage_sfx: AudioStreamPlayer3D = $DamageSFX
 @onready var cannon_sfx: AudioStreamPlayer3D = $CannonSFX
-@onready var HUD: Node2D = $CanvasLayer/Hud
+
 @onready var label = $Label3D
 @onready var camera = $Camera/CameraTarget/SpringArm3D/Camera3D 
 @onready var cannon_camera: Camera3D = $CannonCamera
@@ -133,6 +135,8 @@ func _on_timer_timeout():
 		max_velocity = 0.2
 	if actual_state == state.slow:
 		max_velocity = 0.2
+	if actual_state == state.inked:
+		pass
 	actual_state = state.normal
 	return
 
@@ -208,9 +212,9 @@ func die():
 	Global.nombres.erase(labelName)
 
 
-func getSpecialBall():
-	var ball =randi_range(1, 4)
-	print (ball)
+func getSpecialBall(ball):
+	#var ball = GameData.shared_random_value
+	print ("Recogiste la bala " + str(ball))
 	match ball:
 		state.slow:
 			cannonball_state = state.slow
@@ -218,8 +222,8 @@ func getSpecialBall():
 			cannonball_state = state.freeze	
 		state.confused:
 			cannonball_state = state.confused
-		#state.inked:
-			#actual_state = state.inked
+		state.inked:
+			cannonball_state = state.inked
 			
 	return
 
@@ -228,7 +232,7 @@ func slow(velocity_penalty: int):
 	actual_state = state.slow
 	#disminuir la velocidad del barco por un tiempo y luego devolverla a la normalidad
 	max_velocity = max_velocity * velocity_penalty / 100
-	timer.start(10)
+	timer.start(3)
 	return
 
 func freeze():
@@ -236,16 +240,19 @@ func freeze():
 	print("congelao")
 	max_velocity = 0
 	actual_state = state.freeze
-	timer.start(10)
+	timer.start(3)
 	return
 	
 func opposite_direction():
 	print("direccion opuesta")
 	actual_state = state.confused
-	timer.start(10)
+	timer.start(3)
 	return
 	
 func low_visibility():
+	print("manchado")
+	actual_state = state.inked
+	timer.start(5)
 	return
 	
 func setup(player_data: Statics.PlayerData) -> void:
