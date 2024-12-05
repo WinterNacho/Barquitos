@@ -1,9 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi0q48n1if6t4"]
+[gd_scene load_steps=8 format=3 uid="uid://bi0q48n1if6t4"]
 
 [ext_resource type="Script" path="res://spawn_box.gd" id="1_jxqmw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s4sgw"]
 size = Vector3(0.136719, 1.05566, 0.1521)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlr4a"]
+transparency = 1
+albedo_color = Color(0.772549, 0.956863, 0.439216, 0.396078)
+albedo_texture_force_srgb = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fpjp8"]
+top_radius = 6.0
+bottom_radius = 6.0
+height = 90.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrvd3"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1ox51"]
+material = SubResource("StandardMaterial3D_mrvd3")
+radius = 2.0
+height = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skw3i"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="spawnBox" type="Node3D"]
 script = ExtResource("1_jxqmw")
@@ -17,10 +38,25 @@ shape = SubResource("BoxShape3D_s4sgw")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37, 0)
+visible = false
 use_collision = true
 collision_layer = 0
 collision_mask = 2
 size = Vector3(12, 90, 12)
+material = SubResource("StandardMaterial3D_jlr4a")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37, 0)
+use_collision = true
+collision_layer = 0
+collision_mask = 2
+mesh = SubResource("CylinderMesh_fpjp8")
+material = SubResource("StandardMaterial3D_jlr4a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0)
+mesh = SubResource("SphereMesh_1ox51")
+surface_material_override/0 = SubResource("StandardMaterial3D_skw3i")
 
 [connection signal="spawn_box_destroyed" from="." to="." method="_on_spawn_box_destroyed"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
