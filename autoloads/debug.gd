@@ -47,7 +47,6 @@ func add_to_window_title(text: String) -> void:
 	get_tree().root.title += " %s" % text
 
 
-
 func _get_prefix() -> String:
 	if multiplayer.is_server():
 		return "Server"

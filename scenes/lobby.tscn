@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bslhrv3eo36wd"]
+[gd_scene load_steps=4 format=3 uid="uid://bslhrv3eo36wd"]
 
 [ext_resource type="Script" path="res://scenes/lobby.gd" id="1_g2fmt"]
 [ext_resource type="PackedScene" uid="uid://chbh4lxk8rmmd" path="res://scenes/ui/lobby_player.tscn" id="2_060bj"]
+[ext_resource type="PackedScene" uid="uid://dqbtgubbo0v5q" path="res://scenes/ui/menus/menu_background.tscn" id="3_8qly6"]
 
 [node name="Lobby" type="MarginContainer"]
 anchors_preset = 15
@@ -9,8 +10,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 script = ExtResource("1_g2fmt")
 lobby_player_scene = ExtResource("2_060bj")
+
+[node name="MenuBackground" parent="." instance=ExtResource("3_8qly6")]
+layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -103,21 +111,6 @@ layout_mode = 2
 [node name="Players" type="VBoxContainer" parent="PanelContainer/Menus/ReadyMenu/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Menus/ReadyMenu"]
-layout_mode = 2
-
-[node name="RoleA" type="Button" parent="PanelContainer/Menus/ReadyMenu/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Role A"
-
-[node name="RoleB" type="Button" parent="PanelContainer/Menus/ReadyMenu/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Role B"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/Menus/ReadyMenu"]
 layout_mode = 2

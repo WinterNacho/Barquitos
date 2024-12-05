@@ -11,7 +11,7 @@ signal upnp_completed(error)
 @export var test_players: Array[PlayerDataResource] = [] # first one is server
 @export var use_upnp = false
 
-# [ {id: int, name: string, rol: Rol} ]
+# [ {id: int, name: string} ]
 var players: Array[Statics.PlayerData] = []
 var _thread = null
 
@@ -71,17 +71,6 @@ func set_player_index(index: int) -> void:
 	player_index_received.emit()
 	Debug.add_to_window_title("(Client %d)" % index)
 	Debug.index = index
-
-
-@rpc("any_peer", "reliable", "call_local")
-func set_player_role(id: int, role: Statics.Role) -> void:
-	var player = get_player(id)
-	player.role = role
-	player_updated.emit(id)
-
-
-func set_current_player_role(role: Statics.Role) -> void:
-	set_player_role.rpc(multiplayer.get_unique_id(), role)
 
 
 func is_online() -> bool:

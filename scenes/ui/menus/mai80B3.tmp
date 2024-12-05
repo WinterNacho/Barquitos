@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmn58k6ickmho"]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/main_menu.gd" id="1_eacrn"]
+
+[sub_resource type="Gradient" id="Gradient_nxvx7"]
+offsets = PackedFloat32Array(0.727273)
+colors = PackedColorArray(0.0329862, 0.402894, 0.686936, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hp8ub"]
+gradient = SubResource("Gradient_nxvx7")
+
+[sub_resource type="SystemFont" id="SystemFont_0s0kp"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="SystemFont" id="SystemFont_tkgq0"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fvnb"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eacrn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_hp8ub")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_0s0kp")
+theme_override_font_sizes/font_size = 80
+text = "Barquitos !"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0.509665, 0.378109, 1)
+theme_override_fonts/font = SubResource("SystemFont_tkgq0")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2fvnb")
+text = "PLAY"
+flat = true
+
+[node name="Separator2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0.509665, 0.378109, 1)
+theme_override_fonts/font = SubResource("SystemFont_tkgq0")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2fvnb")
+text = "CREDITS
+"
+flat = true
+
+[node name="Separator3" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0.509665, 0.378109, 1)
+theme_override_fonts/font = SubResource("SystemFont_tkgq0")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2fvnb")
+text = "QUIT"
+flat = true
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "V.0.1
+"

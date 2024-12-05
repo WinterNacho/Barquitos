@@ -15,7 +15,7 @@ var _menu_stack: Array[Control] = []
 @onready var role_a: Button = %RoleA
 @onready var role_b: Button = %RoleB
 @onready var back_ready: Button = %BackReady
-@onready var ready_toggle: Button = %Ready
+@onready var ready_button: Button = %Ready
 @onready var menus: MarginContainer = %Menus
 @onready var start_menu = %StartMenu
 @onready var join_menu = %JoinMenu
@@ -37,9 +37,6 @@ func _ready():
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 	
-	Game.player_updated.connect(func(_id) : _check_ready())
-	Game.players_updated.connect(_check_ready)
-	
 	host.pressed.connect(_on_host_pressed)
 	join.pressed.connect(_on_join_pressed)
 	
@@ -48,14 +45,10 @@ func _ready():
 	back_join.pressed.connect(_back_menu)
 	back_ready.pressed.connect(_back_menu)
 	
-	role_a.pressed.connect(func(): Game.set_current_player_role(Statics.Role.ROLE_A))
-	role_b.pressed.connect(func(): Game.set_current_player_role(Statics.Role.ROLE_B))
-	
-	ready_toggle.pressed.connect(_on_ready_toggled)
+	ready_button.pressed.connect(_on_ready_button_pressed)
 	
 	start_timer.timeout.connect(_on_start_timer_timeout)
 	
-	ready_toggle.disabled = true
 	time_container.hide()
 
 	_go_to_menu(start_menu)
@@ -137,6 +130,7 @@ func _on_peer_connected(id: int) -> void:
 		for player_id in status:
 			set_player_ready.rpc_id(id, player_id, status[player_id])
 		status[id] = false
+		
 
 
 func _on_peer_disconnected(id: int) -> void:
@@ -177,7 +171,7 @@ func _remove_player(id: int):
 
 @rpc("any_peer", "reliable")
 func send_info(info_dict: Dictionary) -> void:
-	var player = Statics.PlayerData.new(info_dict.id, info_dict.name, info_dict.index, info_dict.role)
+	var player = Statics.PlayerData.new(info_dict.id, info_dict.name, info_dict.index)
 	_add_player(player)
 
 
@@ -187,7 +181,7 @@ func _paint_ready(id: int) -> void:
 			child.modulate = Color.GREEN_YELLOW
 
 
-func _on_ready_toggled() -> void:
+func _on_ready_button_pressed() -> void:
 	player_ready.rpc_id(1, multiplayer.get_unique_id())
 
 
@@ -215,8 +209,6 @@ func set_player_ready(id: int, value: bool):
 
 @rpc("any_peer", "call_local", "reliable")
 func starting_game(value: bool):
-	role_a.disabled = value
-	role_b.disabled = value
 	back_ready.disabled = value
 	time_container.visible = value
 	if value:
@@ -228,16 +220,7 @@ func starting_game(value: bool):
 @rpc("any_peer", "call_local", "reliable")
 func start_game() -> void:
 	Game.players.sort_custom(func(a, b): return a.index < b.index)
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
-
-
-
-func _check_ready() -> void:
-	var roles = []
-	for player in Game.players:
-		if not player.role in roles and player.role != Statics.Role.NONE:
-			roles.push_back(player.role)
-	ready_toggle.disabled = roles.size() != Statics.Role.size() - 1
+	get_tree().change_scene_to_file("res://scenes/map/map.tscn")
 
 
 func _disconnect():
@@ -247,7 +230,6 @@ func _disconnect():
 		players.remove_child(player)
 		player.queue_free()
 	
-	ready_toggle.disabled = true
 	status = { 1 : false }
 	Game.players = []
 

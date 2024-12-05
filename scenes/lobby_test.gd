@@ -13,7 +13,6 @@ func _ready():
 			0,
 			test_player.name,
 			i,
-			test_player.role
 		)
 		Game.players.push_back(player)
 	
@@ -67,4 +66,17 @@ func _on_start_game_timeout() -> void:
 
 @rpc("reliable", "call_local")
 func start_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/map/map.tscn")
+
+func is_end_game_question_mark():
+	print("omero")
+	var count = 0
+	for player in Game.players:
+		if player.current_health > 0:
+			count+=1
+	if count<=1:
+		end_game()
+
+func end_game() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene_to_file("res://scenes/ui/menus/end_game.tscn")

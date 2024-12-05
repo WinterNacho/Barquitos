@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqbtgubbo0v5q"]
+
+[sub_resource type="Gradient" id="Gradient_nxvx7"]
+offsets = PackedFloat32Array(0.727273)
+colors = PackedColorArray(0.0329862, 0.402894, 0.686936, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xolma"]
+gradient = SubResource("Gradient_nxvx7")
+
+[node name="MenuBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_xolma")
