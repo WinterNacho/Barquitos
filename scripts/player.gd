@@ -3,9 +3,11 @@ extends CharacterBody3D
 
 const CANNON_BALL = preload("res://scenes/cannon_ball.tscn")
 
+
+
 @onready var damage_sfx: AudioStreamPlayer3D = $DamageSFX
 @onready var cannon_sfx: AudioStreamPlayer3D = $CannonSFX
-@onready var HUD: Node2D = $CanvasLayer/Hud
+
 @onready var label = $Label3D
 @onready var camera = $Camera/CameraTarget/SpringArm3D/Camera3D 
 @onready var cannon_camera: Camera3D = $CannonCamera
@@ -14,7 +16,8 @@ const CANNON_BALL = preload("res://scenes/cannon_ball.tscn")
 @onready var cannonBall_location = $cannon/CannonBall
 @onready var cannon_exit: Marker3D = $"cannon/cannon/cannon_right 12/cannon_exit"
 @onready var labelName
-@onready var timer = $Timer
+@onready var timer = $TimerState
+@onready var ballTimer = $BallTimer
 
 @export var speed = 0.3
 @export var friction = 0.995
@@ -44,6 +47,8 @@ var cannonball_state = state.normal
 @export var wave_frequency = 1.0
 var wave_time = 0.0 
 
+var can_shoot = true
+
 func _physics_process(delta):
 	#if Input.is_action_just_pressed("test"):
 		#set_color(0)
@@ -58,9 +63,8 @@ func _physics_process(delta):
 				cannon_camera.current = false
 			sailing_camera = not sailing_camera
 		# Disparo
-		if Input.is_action_just_pressed("fire"):
+		if Input.is_action_just_pressed("fire") and can_shoot:
 			shoot_cannon_ball()
-			
 		# Movimiento hacia adelante
 		if Input.is_action_pressed("move_forward"):
 			if (sailing_camera):
@@ -131,6 +135,8 @@ func _on_timer_timeout():
 		max_velocity = 0.2
 	if actual_state == state.slow:
 		max_velocity = 0.2
+	if actual_state == state.inked:
+		pass
 	actual_state = state.normal
 	return
 
@@ -188,6 +194,9 @@ func spawn_cannon_ball(spawn_position: Vector3, spawn_direction: Vector3) -> voi
 	get_parent().add_child(cannon_ball_node)
 	cannon_ball_node.global_position = spawn_position
 	cannon_sfx.play()
+	can_shoot = false
+	cannonball_state = state.normal
+	ballTimer.start(2)
 
 func get_current_health():
 	return current_health
@@ -203,13 +212,27 @@ func die():
 	Global.nombres.erase(labelName)
 
 
+func getSpecialBall(ball):
+	#var ball = GameData.shared_random_value
+	print ("Recogiste la bala " + str(ball))
+	match ball:
+		state.slow:
+			cannonball_state = state.slow
+		state.freeze:
+			cannonball_state = state.freeze	
+		state.confused:
+			cannonball_state = state.confused
+		state.inked:
+			cannonball_state = state.inked
+			
+	return
 
 func slow(velocity_penalty: int):
 	# velocity_penalty: porcentaje entre 0 y 100 de penalty en la velocidad del enemigo
 	actual_state = state.slow
 	#disminuir la velocidad del barco por un tiempo y luego devolverla a la normalidad
 	max_velocity = max_velocity * velocity_penalty / 100
-	timer.start(10)
+	timer.start(3)
 	return
 
 func freeze():
@@ -217,16 +240,19 @@ func freeze():
 	print("congelao")
 	max_velocity = 0
 	actual_state = state.freeze
-	timer.start(10)
+	timer.start(3)
 	return
 	
 func opposite_direction():
 	print("direccion opuesta")
 	actual_state = state.confused
-	timer.start(10)
+	timer.start(3)
 	return
 	
 func low_visibility():
+	print("manchado")
+	actual_state = state.inked
+	timer.start(5)
 	return
 	
 func setup(player_data: Statics.PlayerData) -> void:
@@ -244,3 +270,9 @@ func setup(player_data: Statics.PlayerData) -> void:
 		camera.current = false
 	Debug.log("admin")
 	Debug.log(player_data.id)
+
+
+func _on_ball_timer_timeout() -> void:
+	can_shoot = true
+	print("cooldown ended")
+	return
