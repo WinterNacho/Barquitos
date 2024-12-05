@@ -8,6 +8,8 @@ extends Node3D
 @onready var bullet_spawn_points: Node3D = $BulletSpawnPoints
 @onready var spawn_box  = preload("res://scenes/spawn_box.tscn")
 @onready var spawn_timer: Timer = $SpawnTimer
+@onready var angelic: AudioStreamPlayer3D = $angelic
+
 
 var max_spawn_boxes: int = 2
 var current_spawn_boxes: int = 0
@@ -75,6 +77,7 @@ func spawn_spawner_box_at_position(position: Vector3,balltype: int):
 
 @rpc("call_remote")
 func spawn_box_death():
+	angelic.play()
 	current_spawn_boxes = max(current_spawn_boxes - 1, 0)
 
 func is_end_game_question_mark():
