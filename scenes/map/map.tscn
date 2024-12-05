@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jy1115ay0hng"]
+[gd_scene load_steps=11 format=3 uid="uid://jy1115ay0hng"]
 
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="1_d5nro"]
 [ext_resource type="PackedScene" uid="uid://crnktpop0xckn" path="res://scenes/map/ocean.tscn" id="2_6m7ap"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://c4b8rkufb7mfb" path="res://resources/audio/sea_sfx.wav" id="5_ebcx1"]
 [ext_resource type="AudioStream" uid="uid://mme0bc7sibqn" path="res://resources/audio/creakSFX.wav" id="6_5hc80"]
 [ext_resource type="Material" uid="uid://bkj57pl73ypm2" path="res://scenes/map/sky.tres" id="7_vc8bp"]
+[ext_resource type="AudioStream" uid="uid://bir2g1ctkyqt7" path="res://resources/audio/angelic-sfx.mp3" id="8_nc5gf"]
 
 [sub_resource type="Sky" id="Sky_qa7kh"]
 sky_material = ExtResource("7_vc8bp")
@@ -95,3 +96,7 @@ shadow_enabled = true
 environment = SubResource("Environment_n2nwd")
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="angelic" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_nc5gf")
+attenuation_model = 3

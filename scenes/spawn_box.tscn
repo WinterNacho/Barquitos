@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi0q48n1if6t4"]
+[gd_scene load_steps=10 format=3 uid="uid://bi0q48n1if6t4"]
 
 [ext_resource type="Script" path="res://spawn_box.gd" id="1_jxqmw"]
+[ext_resource type="AudioStream" uid="uid://bir2g1ctkyqt7" path="res://resources/audio/angelic-sfx.mp3" id="2_g1aq0"]
+[ext_resource type="AudioStream" path="res://resources/audio/new_ammo.mp3" id="3_jwa62"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s4sgw"]
 size = Vector3(0.136719, 1.05566, 0.1521)
@@ -57,6 +59,14 @@ material = SubResource("StandardMaterial3D_jlr4a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0)
 mesh = SubResource("SphereMesh_1ox51")
 surface_material_override/0 = SubResource("StandardMaterial3D_skw3i")
+
+[node name="angelic" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_g1aq0")
+unit_size = 20.0
+
+[node name="new_ammo" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_jwa62")
+autoplay = true
 
 [connection signal="spawn_box_destroyed" from="." to="." method="_on_spawn_box_destroyed"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
