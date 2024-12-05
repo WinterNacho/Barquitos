@@ -172,10 +172,11 @@ func end_game() -> void:
 func die():
 	self.visible=false
 	self.position=Vector3(0,position.y + 10,0)
-	Global.restantes -=1
+	self.max_velocity=0
+	self.rotation_speed=0
 	Global.nombres.erase(labelName)
-	if Global.restantes <=1:
-		end_game()
+
+
 
 func slow(velocity_penalty: int):
 	# velocity_penalty: porcentaje entre 0 y 100 de penalty en la velocidad del enemigo
@@ -210,7 +211,6 @@ func setup(player_data: Statics.PlayerData) -> void:
 	label.text = player_data.name
 	labelName = player_data.name
 	Global.nombres.append(player_data.name)
-	#print(Global.nombres)
 
 	if is_multiplayer_authority():
 		camera.current = true
