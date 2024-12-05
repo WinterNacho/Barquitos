@@ -191,6 +191,7 @@ func spawn_cannon_ball(spawn_position: Vector3, spawn_direction: Vector3) -> voi
 	cannon_ball_node.global_position = spawn_position
 	cannon_sfx.play()
 	can_shoot = false
+	cannonball_state = state.normal
 	ballTimer.start(2)
 
 func get_current_health():
