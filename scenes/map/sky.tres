@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=12 format=3 uid="uid://2t4tedeph3ch"]
+[gd_resource type="ShaderMaterial" load_steps=12 format=3 uid="uid://bkj57pl73ypm2"]
 
 [ext_resource type="Shader" path="res://scenes/map/sky.gdshader" id="1_vnd7s"]
 

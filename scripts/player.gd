@@ -63,7 +63,7 @@ func _physics_process(delta):
 				cannon_camera.current = false
 			sailing_camera = not sailing_camera
 		# Disparo
-		if Input.is_action_just_pressed("fire") and can_shoot:
+		if Input.is_action_just_pressed("fire") and can_shoot and not sailing_camera:
 			shoot_cannon_ball()
 		# Movimiento hacia adelante
 		if Input.is_action_pressed("move_forward"):

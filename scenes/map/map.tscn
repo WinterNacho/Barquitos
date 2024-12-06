@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="4_ykcci"]
 [ext_resource type="AudioStream" uid="uid://c4b8rkufb7mfb" path="res://resources/audio/sea_sfx.wav" id="5_ebcx1"]
 [ext_resource type="AudioStream" uid="uid://mme0bc7sibqn" path="res://resources/audio/creakSFX.wav" id="6_5hc80"]
-[ext_resource type="Material" uid="uid://2t4tedeph3ch" path="res://scenes/map/sky.tres" id="7_vc8bp"]
+[ext_resource type="Material" uid="uid://bkj57pl73ypm2" path="res://scenes/map/sky.tres" id="7_vc8bp"]
 [ext_resource type="AudioStream" uid="uid://bir2g1ctkyqt7" path="res://resources/audio/angelic-sfx.mp3" id="8_nc5gf"]
 
 [sub_resource type="Sky" id="Sky_qa7kh"]

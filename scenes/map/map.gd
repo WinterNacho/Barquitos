@@ -20,7 +20,7 @@ func _ready() -> void:
 	creak_sfx.play()
 	Global.restantes = Game.players.size()
 	if is_multiplayer_authority():
-		spawn_timer.start(5.0)
+		spawn_timer.start(15.0)
 		spawn_timer.connect("timeout", Callable(self, "_on_SpawnTimer_timeout"))
 
 	for i in Game.players.size():
