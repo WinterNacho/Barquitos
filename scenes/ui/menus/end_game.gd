@@ -5,7 +5,7 @@ extends Node
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var label = $Label
-	label.text = "GANO " + Global.nombres[0]
+	label.text = Global.nombres[0] + " WINS"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
